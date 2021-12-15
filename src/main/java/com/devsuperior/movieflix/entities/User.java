@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import javax.management.Notification;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -42,8 +41,8 @@ public class User implements UserDetails, Serializable {
 		inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 	
-	@OneToMany(mappedBy = "user")
-	private List<Notification> notifications = new ArrayList<>();
+	/*@OneToMany(mappedBy = "user")
+	private List<Review> review = new ArrayList<>();*/
 	
 	public User() {
 		
@@ -94,9 +93,9 @@ public class User implements UserDetails, Serializable {
 		return roles;
 	}
 
-	public List<Notification> getNotifications() {
-		return notifications;
-	}
+	/*public void setReviews(List<Review> review) {
+		this.review = review;
+	}*/
 
 	@Override
 	public int hashCode() {
