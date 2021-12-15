@@ -3,6 +3,7 @@ package com.devsuperior.movieflix.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,10 +23,13 @@ public class Movie implements UserDetails, Serializable {
 	private Long id;
 	private String title;
 	private String subTitle;
+	
 	private Integer year;
 	private String imgUri;
-	private String synopsis;
 	
+	@Column(columnDefinition="TEXT")
+	private String synopsis;
+		
 	public Movie() {
 		
 	}

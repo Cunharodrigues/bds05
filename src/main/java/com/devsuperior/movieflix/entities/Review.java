@@ -22,6 +22,9 @@ public class Review implements UserDetails, Serializable {
 	private long id;
 	private String text;
 	
+	/*@OneToMany(mappedBy = "Review")
+	private List<User> user = new ArrayList<>();*/
+	
 	public Review() {
 		
 	}
@@ -49,64 +52,42 @@ public class Review implements UserDetails, Serializable {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public void setMovie(Movie movie) {
-		// TODO Auto-generated method stub
-		
-	}
+	/*public List<User> getUsers() {
+		return users;
+	}*/
 
-	public void setUser(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object getMovie() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

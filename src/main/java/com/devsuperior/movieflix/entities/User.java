@@ -1,10 +1,8 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -93,7 +90,7 @@ public class User implements UserDetails, Serializable {
 		return roles;
 	}
 
-	/*public void setReviews(List<Review> review) {
+	/*public void getReviews(List<Review> review) {
 		this.review = review;
 	}*/
 
