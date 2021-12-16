@@ -1,12 +1,15 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +22,7 @@ public class Review implements UserDetails, Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String text;
 	
 	/*@OneToMany(mappedBy = "Review")
@@ -29,7 +32,7 @@ public class Review implements UserDetails, Serializable {
 		
 	}
 
-	public Review(long id, String text) {
+	public Review(Long id, String text) {
 		this.id = id;
 		this.text = text;
 	}
@@ -38,7 +41,7 @@ public class Review implements UserDetails, Serializable {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

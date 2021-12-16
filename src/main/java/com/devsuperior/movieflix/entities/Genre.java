@@ -22,8 +22,6 @@ public class Genre implements UserDetails, Serializable {
 	private Long id;
 	private String name;
 	
-	//private List<Movie> movies = new ArrayList<>();
-	
 	public Genre() {
 		
 	}
@@ -31,6 +29,10 @@ public class Genre implements UserDetails, Serializable {
 	public Genre(Long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+
+	public Genre(Object genre) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

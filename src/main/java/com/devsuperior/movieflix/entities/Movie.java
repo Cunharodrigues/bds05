@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -30,10 +33,13 @@ public class Movie implements UserDetails, Serializable {
 	@Column(columnDefinition="TEXT")
 	private String synopsis;
 	
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "genre_id")
-	private Genre genre;*/	
-		
+	private Genre genre;
+	
+	/*@OneToMany
+	private Review reviews;*/
+	
 	public Movie() {
 		
 	}
