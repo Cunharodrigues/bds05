@@ -2,11 +2,14 @@ package com.devsuperior.movieflix.services;
 
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.devsuperior.movieflix.dto.UserDTO;
 import com.devsuperior.movieflix.entities.User;
 import com.devsuperior.movieflix.repositories.UserRepository;
 
@@ -28,6 +31,11 @@ public class UserService implements UserDetailsService {
 		}
 		logger.info("User found" + username);
 		return user;
+	}
+
+	public Page<UserDTO> findAllPaged(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
