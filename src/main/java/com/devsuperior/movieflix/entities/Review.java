@@ -85,9 +85,25 @@ public class Review implements UserDetails, Serializable {
 		return false;
 	}
 
-	/*public List<User> getUsers() {
-		return users;
-	}*/
+	public void setMovie(Movie movie) {
+		// TODO Auto-generated method stub
+		
+	}
 
-	
+	public void setUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getMovie() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+		
 }

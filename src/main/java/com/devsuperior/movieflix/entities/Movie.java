@@ -29,6 +29,10 @@ public class Movie implements UserDetails, Serializable {
 	
 	@Column(columnDefinition="TEXT")
 	private String synopsis;
+	
+	/*@ManyToOne
+	@JoinColumn(name = "genre_id")
+	private Genre genre;*/	
 		
 	public Movie() {
 		
@@ -94,68 +98,56 @@ public class Movie implements UserDetails, Serializable {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void setImgUrl(String string) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	public void setGenre(Genre genre) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	public Object getImgUrl() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Object getGenre() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Object getReviews() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
