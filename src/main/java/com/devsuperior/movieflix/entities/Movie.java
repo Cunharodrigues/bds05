@@ -1,8 +1,9 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,22 +14,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 @Entity
 @Table(name = "tb_movie")
-public class Movie implements UserDetails, Serializable {
+public class Movie implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	private String subTitle;
-	
+	private String subTitle;	
 	private Integer year;
-	private String imgUri;
+	private String imgUrl;
 	
 	@Column(columnDefinition="TEXT")
 	private String synopsis;
@@ -37,20 +34,20 @@ public class Movie implements UserDetails, Serializable {
 	@JoinColumn(name = "genre_id")
 	private Genre genre;
 	
-	/*@OneToMany
-	private Review reviews;*/
+	@OneToMany(mappedBy = "movie")
+	private List<Review> reviews = new ArrayList<>();
 	
 	public Movie() {
 		
 	}
 
-	public Movie(Long id, String title, String subTitle, Integer year, String imgUri, String synopsis) {
+	public Movie(final Long id, final String title, final String subTitle, final Integer year, final String imgUrl, final String synopsis) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
-		this.imgUri = imgUri;
+		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
 	}
 
@@ -58,7 +55,7 @@ public class Movie implements UserDetails, Serializable {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -66,7 +63,7 @@ public class Movie implements UserDetails, Serializable {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(final String title) {
 		this.title = title;
 	}
 
@@ -74,7 +71,7 @@ public class Movie implements UserDetails, Serializable {
 		return subTitle;
 	}
 
-	public void setSubTitle(String subTitle) {
+	public void setSubTitle(final String subTitle) {
 		this.subTitle = subTitle;
 	}
 
@@ -82,79 +79,52 @@ public class Movie implements UserDetails, Serializable {
 		return year;
 	}
 
-	public void setYear(Integer year) {
+	public void setYear(final Integer year) {
 		this.year = year;
 	}
 
-	public String getImgUri() {
-		return imgUri;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setImgUri(String imgUri) {
-		this.imgUri = imgUri;
+	public void setImgUrl(final String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public String getSynopsis() {
 		return synopsis;
 	}
 
-	public void setSynopsis(String synopsis) {
+	public void setSynopsis(final String synopsis) {
 		this.synopsis = synopsis;
 	}
 
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(final Genre genre) {
+		this.genre = genre;		
+	}
+
+	public List<Review> getReviews() {
+	    return reviews;
+	  }
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
-	}
+	  public boolean equals(final Object o) {
+	    if (this == o) {
+	      return true;
+	    }
+	    if (o == null || getClass() != o.getClass()) {
+	      return false;
+	    }
+	    final Movie movie = (Movie) o;
+	    return Objects.equals(id, movie.id);
+	  }
 
-	@Override
-	public String getPassword() {
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		return null;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return false;
-	}
-
-	public void setImgUrl(String string) {
-				
-	}
-
-	public void setGenre(Genre genre) {
-				
-	}
-
-	public Object getImgUrl() {
-		return null;
-	}
-
-	public Object getGenre() {
-		return null;
-	}
-
-	public Object getReviews() {
-		return null;
-	}
-	
+	  @Override
+	  public int hashCode() {
+	    return Objects.hash(id);
+	  }
+		
 }

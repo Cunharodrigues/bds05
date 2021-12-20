@@ -1,20 +1,20 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "tb_genre")
-public class Genre implements UserDetails, Serializable {
+public class Genre implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -22,24 +22,23 @@ public class Genre implements UserDetails, Serializable {
 	private Long id;
 	private String name;
 	
+	@OneToMany(mappedBy = "genre")
+	private List<Movie> movies = new ArrayList<>();
+	
 	public Genre() {
 		
 	}
 
-	public Genre(Long id, String name) {
+	public Genre(final Long id, final String name) {
 		this.id = id;
 		this.name = name;
 	}
-
-	public Genre(Object genre) {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -47,73 +46,28 @@ public class Genre implements UserDetails, Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+	public List<Movie> getMovies() {
+		return movies;
 	}
 
 	@Override
-	public String getPassword() {
-		return null;
-	}
+	  public boolean equals(final Object o) {
+	    if (this == o) {
+	      return true;
+	    }
+	    if (o == null || getClass() != o.getClass()) {
+	      return false;
+	    }
+	    final Genre genre = (Genre) o;
+	    return Objects.equals(id, genre.id);
+	  }
 
-	@Override
-	public String getUsername() {
-		return null;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return false;
-	}
-
-	public Object getMovies() {
-		return null;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Genre other = (Genre) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
-	
+	  @Override
+	  public int hashCode() {
+	    return Objects.hash(id);
+	  }	
 }
