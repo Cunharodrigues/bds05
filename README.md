@@ -4,6 +4,10 @@
 <p>https://github.com/devsuperior/bds05</p>
 
 # Visão geral do sistema MovieFlix
+
+<p>Protótipos de tela</p>
+<p>https://www.figma.com/file/qmduL2GXrMrqRLyFjFCk56/MovieFlix-web</p>
+
 <p>Visão geral do sistema MovieFlix</p>
 
 <p>O sistema MovieFlix consiste em um banco de filmes, os quais podem ser listados e avaliados pelos usuários. 
