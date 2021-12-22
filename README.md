@@ -37,7 +37,7 @@ Um mesmo usuário membro pode deixar mais de uma avaliação para o mesmo filme.
                 senha: 123456
                 
 # Endpoint que deverá ser feito:
-    1) Obter o perfil do usuário logado
-       GET /users/profile
-       Testes mínimos para aprovação: 8/8
+    1 - Obter o perfil do usuário logado
+          GET /users/profile
+          Testes mínimos para aprovação: 8/8
 
